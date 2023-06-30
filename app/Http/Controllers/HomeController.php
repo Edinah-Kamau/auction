@@ -29,6 +29,8 @@ class HomeController extends Controller
         return view('logoutPrompt');
     }
 
+   
+
 
     public function index()
     {

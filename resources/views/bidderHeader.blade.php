@@ -3,6 +3,9 @@
 <head>
 
 
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="{{asset('css/popup.css')}}">
  
 
 
@@ -39,7 +42,7 @@
             <a href="#" class="fab fa-instagram" style="text-decoration: none;"></a>
             <a href="#" class="fab fa-linkedin" style="text-decoration: none;"></a>
          </div>
-         <p> new <a href="{{ route('login') }}" style="text-decoration: none;">login</a> | <a href="{{ route('register') }}" style="text-decoration: none;">register</a>  </p>
+         <p> new <a href="{{ route('login') }}" style="text-decoration: none;">login</a> | <a href="{{ route('register') }}" style="text-decoration: none;">register</a>   </p>
       </div>
    </div>
 
@@ -49,10 +52,10 @@
 
          <nav class="navbar">
             <a style="text-decoration: none;" href="{{ route('welcome') }}">home</a>
-            <a style="text-decoration: none;" href="about">about</a>
-            <a style="text-decoration: none;" href="shop">shop</a>
-            <a style="text-decoration: none;" href="contact">contact</a>
-            <a style="text-decoration: none;" href="orders">orders</a>
+            <a style="text-decoration: none;" href="{{ route('about') }}">about</a>
+            <a style="text-decoration: none;" href="{{ route('shop') }}">shop</a>
+            <a style="text-decoration: none;" href="{{ route('contacts') }}">contact</a>
+            <a style="text-decoration: none;" href="{{ route('orders') }}">orders</a>
          </nav>
 
          <div class="icons">
@@ -85,7 +88,7 @@
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <br>
                                 <a class="dropdown-item" style="font-size: 20px; text-decoration: none; width:100%; color:purple" href="{{ route('password.update') }}">Reset Password</a>
-                                <a class="dropdown-item" style="font-size: 20px; text-decoration: none; width:100%; color:purple" href="{{ route('logout.prompt') }}" data-toggle="modal" data-target="#myModal">Logout</a>
+                                <a class="dropdown-item" style="font-size: 20px; text-decoration: none; width:100%; color:purple"  id="open">Logout</a>
                                 
                                 
                                 </div>
@@ -98,4 +101,55 @@
       </div>
    </div>
 
+
+
+
+
+
+
+    <div class="model-container">
+      <div class="model">
+                
+        <p STYLE="color:purple; text-indent: 50px; text-align: justify; letter-spacing: 3px; font-size:20px;">ARGE AUCTION SHOP</p>
+                      
+        <p STYLE=" text-indent: 50px; text-align: justify; letter-spacing: 3px; font-size:15px;">Do you want to logout?</p>
+        
+        <br></br>    
+       <div class="dis">
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" enctype="multipart/form-data">
+         @csrf
+        <button STYLE="display:inline; float:left; " type="submit" href="{{ route('logout') }}" >Yes</button>
+        </form>
+       
+        <button STYLE="display:block; float:right; background-color:purple;  " id="close_up"  >No</button>
+        <div>
+        <i class="fa fa-times" id="close"></i>
+      </div> 
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js" charset="utf-8"></script>
+    <script>
+
+        $(document).ready(function(){
+
+            $('#open').click(function(){
+                $('.model-container').css('transform','scale(1)');
+
+        }); 
+
+        $('#close').click(function(){
+                $('.model-container').css('transform','scale(0)');
+
+        }); 
+
+        $('#close_up').click(function(){
+                $('.model-container').css('transform','scale(0)');
+
+        }); 
+
+
+    });
+    </script>
 </header>
+
+
