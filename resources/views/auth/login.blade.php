@@ -77,6 +77,8 @@
 
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OR &nbsp;&nbsp;&nbsp;&nbsp;
       <input type="submit" name="submit" value="MetaMask" name="metamask"class="btn" STYLE="background-color:gray; ">
+
+      <a href="{{ route('google.login') }}" class="btn" STYLE="background-color:#4285F4" size="100%" >Metamask</a>
       
    </form>
 
