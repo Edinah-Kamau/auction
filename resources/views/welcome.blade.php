@@ -26,7 +26,7 @@
    <div class="content">
       <h3>Arge Auction Shop.</h3>
       <p>Bid Farewell To High Prices. Bid It To Win It. Our Auctions Are Fair & Profitable.</p>
-      <a href="about"style="text-decoration: none;" class="white-btn">discover more</a>
+      <a href="{{ route('shop') }}"style="text-decoration: none;" class="white-btn">Shop Now</a>
    </div>
 
 </section>

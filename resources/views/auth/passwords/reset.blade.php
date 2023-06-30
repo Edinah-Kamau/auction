@@ -201,7 +201,7 @@ document.querySelector('.myDropdown').addEventListener('click', function(event) 
  function showpass1(){
 
   var showpassword1 = document.getElementById('showpasswordconfirm');
-  var passwordField1 = document.getElementById('password_confirmation');
+  var passwordField1 = document.getElementById('confirmpassword');
   
   
 
