@@ -46,10 +46,12 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    
     protected function type(): Attribute
     {
         return new Attribute(
             get: fn ($value) =>  ["bidder", "admin", "seller"][$value],
         );
     }
+    
 }
