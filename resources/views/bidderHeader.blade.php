@@ -42,7 +42,7 @@
             <a href="#" class="fab fa-instagram" style="text-decoration: none;"></a>
             <a href="#" class="fab fa-linkedin" style="text-decoration: none;"></a>
          </div>
-         <p> new <a href="{{ route('login') }}" style="text-decoration: none;">login</a> | <a href="{{ route('register') }}" style="text-decoration: none;">register</a>   </p>
+         <p> new <a href="{{ route('login') }}" style="text-decoration: none;">login</a> | <a href="{{ route('register') }}" style="text-decoration: none;">register</a> | <a href="{{ route('applications') }}" style="text-decoration: none;">Apply as vendor</a>   </p>
       </div>
    </div>
 
