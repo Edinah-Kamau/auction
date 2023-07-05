@@ -4,13 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class NavigationController extends Controller
+class BidderController extends Controller
 {
     /**
      * Create a new controller instance.
      *
      * @return void
      */
+
+     public function index()
+    {
+        return view('welcome');
+    }
+    
     public function shop()
     {
         return view('shop');
@@ -26,9 +32,14 @@ class NavigationController extends Controller
         return view('contacts');
     }
 
-    public function orders()
+    public function applications()
     {
-        return view('orders');
+        return view('applications');
+    }
+
+    public function adminHome()
+    {
+        return view('adminHome');
     }
 
 

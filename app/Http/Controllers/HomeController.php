@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -32,14 +33,21 @@ class HomeController extends Controller
    
 
 
-    public function index()
-    {
-        return view('welcome');
-    }
+   
 
     public function adminHome()
     {
-        return view('adminHome');
+        $totalbidders = User::where ('type','0')->count();
+        $totalsellers = User::where ('type','2')->count();
+        $totaladmins = User::where ('type','1')->count();
+        $totalaccounts = User::count();
+        $applications = User::count();
+    
+        
+
+      
+        return view('adminHome',compact('totalbidders','totalsellers','totaladmins', 'totalaccounts','applications'));
+      
     }
    
     /**
@@ -51,5 +59,20 @@ class HomeController extends Controller
     {
         return view('sellerHome');
     }
+
+    //applications
+    
+    public function orders()
+    {
+        return view('orders');
+    }
+
+    
+    
+
+
+
+
+    
 
 }
