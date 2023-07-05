@@ -2,9 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\IndexController;
+use App\Http\Controllers\BidderController;
 use App\Http\Controllers\adminController;
+use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\API\SocialAuthController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,18 +29,13 @@ Route::get('/logout/prompt', [App\Http\Controllers\HomeController::class, 'logou
 
 
 Auth::routes();
-Route::group(['middleware'=>'disable_back'],function(){
-Route::group(['middleware'=>'disable_back'],function(){
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-});
-});
+
+
 
 Route::group(['middleware'=>'disable_back'],function(){
-Route::middleware(['auth', 'user-access:bidder'])->group(function () {
-Route::get('/welcome', [HomeController::class, 'index'])->name('welcome');
+Route::get('/welcome', [BidderController::class, 'index'])->name('welcome');
 });
-});
-  
+ 
 /*------------------------------------------
 --------------------------------------------
 All Admin Routes List
@@ -67,28 +64,62 @@ Route::get('/auth/google/callback', [SocialAuthController::class, 'handleCallbac
 });
 
 Route::group(['middleware'=>'disable_back'],function(){
-Route::get('/shop', [App\Http\Controllers\NavigationController::class, 'shop'])->name('shop');
+Route::get('/shop', [App\Http\Controllers\BidderController::class, 'shop'])->name('shop');
 });
 
 Route::group(['middleware'=>'disable_back'],function(){
-Route::get('/contacts', [App\Http\Controllers\NavigationController::class, 'contacts'])->name('contacts');
+Route::get('/contacts', [App\Http\Controllers\BidderController::class, 'contacts'])->name('contacts');
 });
 
 Route::group(['middleware'=>'disable_back'],function(){
-Route::get('/orders', [App\Http\Controllers\NavigationController::class, 'orders'])->name('orders');
+Route::get('/orders', [App\Http\Controllers\HomeController::class, 'orders'])->name('orders');
 });
 
 Route::group(['middleware'=>'disable_back'],function(){
-Route::get('/about', [App\Http\Controllers\NavigationController::class, 'about'])->name('about');
+Route::get('/about', [App\Http\Controllers\BidderController::class, 'about'])->name('about');
 });
 
 Route::group(['middleware'=>'disable_back'],function(){
-Route::get('/adminHome', [App\Http\Controllers\adminController::class, 'adminHome'])->name('adminHome');
+Route::get('/adminHome', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('adminHome');
+});
+
+
+// Dipsplay Users in admin side
+
+Route::group(['middleware'=>'disable_back'],function(){
+Route::get('/display/bidders', [App\Http\Controllers\adminController::class, 'displayBidders'])->name('display.bidders');
 });
 
 Route::group(['middleware'=>'disable_back'],function(){
-Route::get('/displayBidders', [App\Http\Controllers\adminController::class, 'displayBidders'])->name('displayBidders');
+Route::get('/display/sellers', [App\Http\Controllers\adminController::class, 'displaySellers'])->name('display.sellers');
 });
+
+Route::group(['middleware'=>'disable_back'],function(){
+Route::get('/display/admins', [App\Http\Controllers\adminController::class, 'displayAdmins'])->name('display.admins');
+});
+
+Route::group(['middleware'=>'disable_back'],function(){
+Route::get('/display/accounts', [App\Http\Controllers\adminController::class, 'displayAccounts'])->name('display.accounts');
+});
+
+Route::group(['middleware'=>'disable_back'],function(){
+Route::get('/display/applications', [App\Http\Controllers\adminController::class, 'displayApplications'])->name('display.applications');
+});
+
+
+//application
+
+
+Route::get('/applications', [App\Http\Controllers\BidderController::class, 'applications'])->name('applications');
+Route::post('/applications', [App\Http\Controllers\ApplicationController::class, 'applications'])->name('applications');
+Route::get('/download{national_id_front}', [App\Http\Controllers\ApplicationController::class, 'donwload'])->name('download');
+Route::get('/download1{national_id_back}', [App\Http\Controllers\ApplicationController::class, 'download1'])->name('download1');
+Route::get('/download2{proof_front}', [App\Http\Controllers\ApplicationController::class, 'download2'])->name('download2');
+Route::get('/download3{proof_back}', [App\Http\Controllers\ApplicationController::class, 'download3'])->name('download3');
+
+
+
+
 
 
 
