@@ -58,7 +58,7 @@ class LoginController extends Controller
             }else if (auth()->user()->type == 'seller') {
                 return redirect()->route('seller.home');
             }else{
-                return redirect()->route('welcome');
+                return redirect()->route('bidder.home');
             }
         }else{
             return redirect()->route('login')

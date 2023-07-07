@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-
+use App\Models\Application;
 class HomeController extends Controller
 {
     /**
@@ -25,15 +25,16 @@ class HomeController extends Controller
      * 
      */
 
-     public function logoutPrompt()
+     public function bidderHome()
+     {
+         return view('bidderHome');
+
+     }
+
+   public function sellerHome()
     {
-        return view('logoutPrompt');
+        return view('sellerHome');
     }
-
-   
-
-
-   
 
     public function adminHome()
     {
@@ -41,37 +42,34 @@ class HomeController extends Controller
         $totalsellers = User::where ('type','2')->count();
         $totaladmins = User::where ('type','1')->count();
         $totalaccounts = User::count();
-        $applications = User::count();
-    
-        
-
-      
+        $applications = Application::count();
         return view('adminHome',compact('totalbidders','totalsellers','totaladmins', 'totalaccounts','applications'));
       
     }
+
+
+
+     public function logoutPrompt()
+    {
+        return view('logoutPrompt');
+    }
+
+     
+
+   
    
     /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function sellerHome()
-    {
-        return view('sellerHome');
-    }
-
-    //applications
+    
+       //applications
     
     public function orders()
     {
         return view('orders');
     }
-
-    
-    
-
-
-
 
     
 

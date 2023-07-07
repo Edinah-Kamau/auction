@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Application;
-use App\Models\User;
+
 use Illuminate\Support\Facades\Storage;
 
 class applicationController extends Controller
@@ -84,27 +84,7 @@ class applicationController extends Controller
 
     }
 
-
-    public function download(Request $request,$national_id_front)
-    {
-        return response()->download(storage_path('assets/'.$national_id_back));
-    }
-
-    public function download1(Request $request,$national_id_back)
-    {
-        return response()->download(storage_path('assets/'.$national_id_back));
-    }
-
-    public function download2(Request $request,$proof_front)
-    {
-        return response()->download(storage_path('assets/'.$proof_front));
-    }
-
-    public function download3(Request $request,$proof_back)
-    {
-        return response()->download(storage_path('assets/'.$proof_back));
-    }
-
+ 
     
 
 }
