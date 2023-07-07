@@ -111,15 +111,28 @@
             <a style="text-decoration: none;" href="{{ route('adminHome') }}">Home</a>
                         
             <div class="dropdown1">
-            <button class="dropbtn1">Users</button>
+            <button class="dropbtn1">Accounts</button>
             
             <div class="dropdown-content1">
             <a style="text-decoration: none;" href="{{ route('display.bidders') }}">Bidders</a>
             <a style="text-decoration: none;" href="{{ route('display.sellers') }}">Sellers</a>
             <a style="text-decoration: none;" href="{{ route('display.admins') }}">Admins</a>
+            <a style="text-decoration: none;" href="{{ route('display.blocked') }}">Blocked</a>
             <a style="text-decoration: none;" href="{{ route('display.accounts') }}">Accounts</a>
             <a style="text-decoration: none;" href="{{ route('display.applications') }}">Applications</a>
 
+            </div>
+            </div>
+
+            <div class="dropdown1">
+            <button class="dropbtn1">Users</button>
+            
+            <div class="dropdown-content1">
+            <a style="text-decoration: none;" href="{{ route('about') }}">Add Users</a>
+            <a style="text-decoration: none;" href="{{ route('about') }}">Applications</a>
+
+
+            
             </div>
             </div>
 

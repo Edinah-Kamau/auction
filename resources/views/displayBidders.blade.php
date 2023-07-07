@@ -15,9 +15,17 @@
 </head>
 <body>
 
+
 @include('adminHeader');
 <section class="users">
-
+@if(Session::has('success'))
+       <div class="alert-success">{{Session::get('success')}}</div>
+       @endif
+       @if(Session::has('fail'))
+       <div class="alert-danger">{{Session::get('fail')}}</div>
+       @endif
+ 
+@if($data->count() > 0)
    
    <div class="box-container">
    @php 
@@ -30,11 +38,16 @@
    <p> Name : <span>{{$bidders->name}}</span> </p>
    <p> Email : <span>{{$bidders->email}}</span> </p>
    <p> Type : <span>{{ $bidders->type }}</span> </p>
-  <a href="" style="text-decoration: none;" class="option-btn">update</a>
-  <a href="" style="text-decoration: none;" class="delete-btn">Delete</a>
+  <a href="{{url('delete_bidders/' . $bidders->id) }}" style="text-decoration: none;" class="delete-btn">Delete</a>
+  <a href="{{route('status.update', ['user_id' => $bidders->id, 'status_code' => 0]) }}" style="text-decoration: none;" class="delete-btn">Block</a>
+  
    </div>
 @endforeach
 </div>
+@else
+<p style="color:red; font-size:30px;"> <span>The are no registered Bidders</span> </p>
+@endif
+
 </section>
 
 <!-- custom admin js file link  -->

@@ -15,7 +15,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Arge') }}</title>
 
     <!-- Fonts -->
     
@@ -51,7 +51,7 @@
          <a href="home" style="text-decoration: none;"class="logo">Arge.</a>
 
          <nav class="navbar">
-            <a style="text-decoration: none;" href="{{ route('welcome') }}">home</a>
+            <a style="text-decoration: none;" href="{{ route('bidder.home') }}">home</a>
             <a style="text-decoration: none;" href="{{ route('about') }}">about</a>
             <a style="text-decoration: none;" href="{{ route('shop') }}">shop</a>
             <a style="text-decoration: none;" href="{{ route('contacts') }}">contact</a>
