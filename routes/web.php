@@ -8,6 +8,7 @@ use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\API\SocialAuthController;
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,49 +20,63 @@ use App\Http\Controllers\API\SocialAuthController;
 |
 */
 
+
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('bidderHome');
 });
 
-Route::group(['middleware'=>'disable_back'],function(){
-Route::get('/logout/prompt', [App\Http\Controllers\HomeController::class, 'logoutPrompt'])->name('logout.prompt');
-});
 
+
+ 
+/*------------------------------------------
+--------------------------------------------
+All Login Routes List
+--------------------------------------------
+--------------------------------------------*/
 
 Auth::routes();
 
 
-
-Route::group(['middleware'=>'disable_back'],function(){
-Route::get('/welcome', [BidderController::class, 'index'])->name('welcome');
-});
- 
-/*------------------------------------------
---------------------------------------------
-All Admin Routes List
---------------------------------------------
---------------------------------------------*/
 Route::group(['middleware'=>'disable_back'],function(){
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
 Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
 });
 });
+
+
+Route::group(['middleware'=>'disable_back'],function(){
+Route::get('/bidder/home', [HomeController::class, 'bidderHome'])->name('bidder.home');
+});
   
-/*------------------------------------------
---------------------------------------------
-All Admin Routes List
---------------------------------------------
---------------------------------------------*/
+
 Route::group(['middleware'=>'disable_back'],function(){
 Route::middleware(['auth', 'user-access:seller'])->group(function () {
 Route::get('/seller/home', [HomeController::class, 'sellerHome'])->name('seller.home');
 });
 });
 
+
 Route::group(['middleware'=>'disable_back'],function(){
 Route::get('/login-google', [SocialAuthController::class, 'redirectToProvider'])->name('google.login');
 Route::get('/auth/google/callback', [SocialAuthController::class, 'handleCallback'])->name('google.login.callback');
 });
+
+Route::group(['middleware'=>'disable_back'],function(){
+Route::get('/logout/prompt', [App\Http\Controllers\BidderController::class, 'logoutPrompt'])->name('logout.prompt');
+});
+
+Route::middleware('auth')->group(function () {
+Route::get('/users/status/{user_id}/{status_code}',[adminController::class, 'updateStatus'])->name('status.update');;
+});
+
+/*------------------------------------------
+--------------------------------------------
+Navigations 
+--------------------------------------------
+--------------------------------------------*/
+
+
 
 Route::group(['middleware'=>'disable_back'],function(){
 Route::get('/shop', [App\Http\Controllers\BidderController::class, 'shop'])->name('shop');
@@ -83,8 +98,11 @@ Route::group(['middleware'=>'disable_back'],function(){
 Route::get('/adminHome', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('adminHome');
 });
 
-
-// Dipsplay Users in admin side
+/*------------------------------------------
+--------------------------------------------
+All Display Routes - Admin Side
+--------------------------------------------
+--------------------------------------------*/
 
 Route::group(['middleware'=>'disable_back'],function(){
 Route::get('/display/bidders', [App\Http\Controllers\adminController::class, 'displayBidders'])->name('display.bidders');
@@ -106,18 +124,34 @@ Route::group(['middleware'=>'disable_back'],function(){
 Route::get('/display/applications', [App\Http\Controllers\adminController::class, 'displayApplications'])->name('display.applications');
 });
 
+Route::group(['middleware'=>'disable_back'],function(){
+Route::get('/display/blocked', [App\Http\Controllers\adminController::class, 'displayBlocked'])->name('display.blocked');
+});
 
-//application
+
+/*------------------------------------------
+--------------------------------------------
+Applications
+--------------------------------------------
+--------------------------------------------*/
 
 
 Route::get('/applications', [App\Http\Controllers\BidderController::class, 'applications'])->name('applications');
 Route::post('/applications', [App\Http\Controllers\ApplicationController::class, 'applications'])->name('applications');
-Route::get('/download{national_id_front}', [App\Http\Controllers\ApplicationController::class, 'donwload'])->name('download');
-Route::get('/download1{national_id_back}', [App\Http\Controllers\ApplicationController::class, 'download1'])->name('download1');
-Route::get('/download2{proof_front}', [App\Http\Controllers\ApplicationController::class, 'download2'])->name('download2');
-Route::get('/download3{proof_back}', [App\Http\Controllers\ApplicationController::class, 'download3'])->name('download3');
+
+/*------------------------------------------
+--------------------------------------------
+Delete Buttons
+--------------------------------------------
+--------------------------------------------*/
 
 
+Route::get('delete_bidders/{id}', 'App\Http\Controllers\adminController@delete_bidders');
+Route::get('delete_sellers/{id}', 'App\Http\Controllers\adminController@delete_sellers');
+Route::get('delete_admins/{id}', 'App\Http\Controllers\adminController@delete_admins');
+Route::get('delete_accounts/{id}', 'App\Http\Controllers\adminController@delete_accounts');
+Route::get('delete_applications/{id}', 'App\Http\Controllers\adminController@delete_applications');
+Route::get('delete_blocked/{id}', 'App\Http\Controllers\adminController@delete_blocked');
 
 
 
