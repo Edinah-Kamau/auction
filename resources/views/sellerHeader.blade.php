@@ -6,63 +6,6 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <link rel="stylesheet" href="{{asset('css/popup.css')}}">
-<link rel="stylesheet" href="{{asset('css/admin_style.css')}}">
-
-<style>
-
-    /* Style The Dropdown Button */
-.dropbtn1 {
-  background-color: white;
-  color:#666;
-  font-size: 20px;
-  border: none;
-  cursor: pointer;
-  padding-left:30px;
-  padding-right:4px;
-}
-
-/* The container <div> - needed to position the dropdown content */
-.dropdown1 {
-  position: relative;
-  display: inline-block;
-}
-
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content1 {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropbtn1:hover{
-    color:purple;
-}
-
-/* Links inside the dropdown */
-.dropdown-content1 a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-decoration: none;
-}
-
-/* Change color of dropdown links on hover */
-.dropdown-content1 a:hover {background-color: #f1f1f1; text-decoration: none; color:purple;}
-
-/* Show the dropdown menu on hover */
-.dropdown1:hover .dropdown-content1 {
-  display: block;
-}
-
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown1:hover .dropbtn1 {
-  background-color: white;
-}
-</style>
  
 
 
@@ -95,54 +38,10 @@
          <a href="home" style="text-decoration: none;"class="logo">Arge.</a>
 
          <nav class="navbar">
-            <a style="text-decoration: none;" href="{{ route('adminHome') }}">Home</a>
-                        
-            <div class="dropdown1">
-            <button class="dropbtn1">Accounts</button>
-            
-            <div class="dropdown-content1">
-            <a style="text-decoration: none;" href="{{ route('display.bidders') }}">Bidders</a>
-            <a style="text-decoration: none;" href="{{ route('display.sellers') }}">Sellers</a>
-            <a style="text-decoration: none;" href="{{ route('display.admins') }}">Admins</a>
-            <a style="text-decoration: none;" href="{{ route('display.blocked') }}">Blocked</a>
-            <a style="text-decoration: none;" href="{{ route('display.accounts') }}">Accounts</a>
-            
-
-            </div>
-            </div>
-
-            <div class="dropdown1">
-            <button class="dropbtn1">Users</button>
-            
-            <div class="dropdown-content1">
-            <a style="text-decoration: none;" href="{{ route('add.users') }}">Add Users</a>
-            <a style="text-decoration: none;" href="{{ route('display.applications') }}">Applications</a>
-
-
-            
-            </div>
-            </div>
-
-            
-
-            <div class="dropdown1">
-            <button class="dropbtn1">Sales</button>
-            
-            <div class="dropdown-content1">
-            <a style="text-decoration: none;" href="{{ route('about') }}">products</a>
-            <a style="text-decoration: none;" href="{{ route('about') }}">Graphs</a>
-
-
-            
-            </div>
-            </div>
-
-            
-             
-            
+            <a style="text-decoration: none;" href="{{ route('seller.home') }}">Home</a>
+            <a style="text-decoration: none;" href="{{ route('about') }}">Products</a>
+            <a style="text-decoration: none;" href="{{ route('about') }}">Bidders</a>
          </nav>
-
-         
 
          @guest
                             @if (Route::has('login'))
@@ -166,7 +65,7 @@
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <br>
                                 <a class="dropdown-item" style="font-size: 20px; text-decoration: none; width:100%; color:purple" href="{{ route('password.update') }}">Reset Password</a>
-                                <a class="dropdown-item" style="font-size: 20px; text-decoration: none; width:100%; color:purple"  id="open" >Logout</a>
+                                <a class="dropdown-item" style="font-size: 20px; text-decoration: none; width:100%; color:purple"  id="open">Logout</a>
                                 
                                 
                                 </div>
@@ -179,9 +78,13 @@
       </div>
    </div>
 
+
+
+
+
+
+
     <div class="model-container">
-
-
       <div class="model">
                 
         <p STYLE="color:purple; text-indent: 50px; text-align: justify; letter-spacing: 3px; font-size:20px;">ARGE AUCTION SHOP</p>
@@ -224,10 +127,6 @@
 
     });
     </script>
-
-
-
-
 </header>
 
 
