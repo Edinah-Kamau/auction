@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->tinyInteger('type')->default(0);
-            /* Users: 0=>Bidder, 1=>Admin, 2=>Seller */
+            /* Users: 0=>Bidder, 1=>Admin, 2=>Seller, 3=>blocked */
             $table->string('google_id')->nullable();
             $table->string('password')->nullable();
             $table->rememberToken();
