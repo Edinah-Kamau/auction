@@ -11,9 +11,10 @@ class IndexController extends Controller
      *
      * @return void
      */
-    public function welcome()
+    public function loginj()
     {
-        return view('welcome');
+        return view('login');
     }
+
 }
 ?>

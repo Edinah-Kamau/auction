@@ -26,38 +26,50 @@
    <h1 class="title">dashboard</h1>
 
    <div class="box-container">
+   
+      <div class="box" >
 
-      
-      <div class="box">
         
-         <h3></h3>
-         <p>bidder accounts</p>
+         <h2>{{$totalbidders}}</h2>
+         <p> <a href="{{ route('display.bidders') }}" style="text-decoration: none; color:purple;">bidder accounts</a> </p>
       </div>
+     
 
       <div class="box">
         
-         <h3></h3>
-         <p>admin accounts</p>
+         <h2>{{$totaladmins}}</h2>
+         <p> <a href="{{ route('display.admins') }}" style="text-decoration: none; color:purple;">Admin accounts</a> </p>
       </div>
 
       <div class="box">
          
-         <h3></h3>
-         <p>seller accounts</p>
+         <h2>{{$totalsellers}}</h2>
+         <p> <a href="{{ route('display.sellers') }}" style="text-decoration: none; color:purple;">Sellers accounts</a> </p>
       </div>
 
       
 
       <div class="box">
          
-         <h3></h3>
-         <p>total accounts</p>
+         <h2>{{$totalaccounts}}</h2>
+         <p> <a href="{{ route('display.accounts') }}" style="text-decoration: none; color:purple;">Total accounts</a> </p>
+      </div>
+
+      <div class="box">
+      <h2>{{$applications}}</h2>
+         <p> <a href="{{ route('display.applications') }}" style="text-decoration: none; color:purple;">Applications</a> </p>
       </div>
 
       <div class="box">
         
          <h3></h3>
-         <p>new messages</p>
+         <p>Bidders Messages</p>
+      </div>
+
+      <div class="box">
+        
+         <h3></h3>
+         <p>Sellers Messages</p>
       </div>
 
    </div>
