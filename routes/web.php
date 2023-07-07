@@ -6,6 +6,8 @@ use App\Http\Controllers\BidderController;
 use App\Http\Controllers\adminController;
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\API\SocialAuthController;
+use App\Http\Controllers\API\AuctionController;
+
 
 
 
@@ -165,8 +167,9 @@ Route::get('delete_accounts/{id}', 'App\Http\Controllers\adminController@delete_
 Route::get('delete_applications/{id}', 'App\Http\Controllers\adminController@delete_applications');
 Route::get('delete_blocked/{id}', 'App\Http\Controllers\adminController@delete_blocked');
 
-
-
-
-
-
+/*------------------------------------------
+--------------------------------------------
+All Seller Routes
+--------------------------------------------
+--------------------------------------------*/
+Route::get('createAuction', [App\Http\Controllers\AuctionController::class, 'store'])->name('create.Auction');

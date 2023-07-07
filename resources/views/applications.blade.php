@@ -20,7 +20,7 @@
 
 <div class="heading">
    <h3>Apply as a vendor</h3>
-   <p> <a href="{{ route('welcome') }}">home</a> / application </p>
+   <p> <a href="{{ route('bidder.home') }}">home</a> / application </p>
  
 </div>
 
