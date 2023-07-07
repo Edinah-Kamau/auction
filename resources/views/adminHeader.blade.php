@@ -119,7 +119,7 @@
             <a style="text-decoration: none;" href="{{ route('display.admins') }}">Admins</a>
             <a style="text-decoration: none;" href="{{ route('display.blocked') }}">Blocked</a>
             <a style="text-decoration: none;" href="{{ route('display.accounts') }}">Accounts</a>
-            <a style="text-decoration: none;" href="{{ route('display.applications') }}">Applications</a>
+            
 
             </div>
             </div>
@@ -128,8 +128,8 @@
             <button class="dropbtn1">Users</button>
             
             <div class="dropdown-content1">
-            <a style="text-decoration: none;" href="{{ route('about') }}">Add Users</a>
-            <a style="text-decoration: none;" href="{{ route('about') }}">Applications</a>
+            <a style="text-decoration: none;" href="{{ route('add.users') }}">Add Users</a>
+            <a style="text-decoration: none;" href="{{ route('display.applications') }}">Applications</a>
 
 
             

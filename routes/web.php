@@ -72,11 +72,23 @@ Route::get('/users/status/{user_id}/{status_code}',[adminController::class, 'upd
 
 /*------------------------------------------
 --------------------------------------------
-Navigations 
+Add users- ADMIN side
 --------------------------------------------
 --------------------------------------------*/
 
+Route::group(['middleware'=>'disable_back'],function(){
+Route::get('/add/users', [App\Http\Controllers\adminController::class, 'addUsers'])->name('add.users');
+});
 
+Route::group(['middleware'=>'disable_back'],function(){
+Route::post('/add/users', [App\Http\Controllers\AddusersController::class, 'addUsers'])->name('add.users');
+});
+
+/*------------------------------------------
+--------------------------------------------
+Navigations 
+--------------------------------------------
+--------------------------------------------*/
 
 Route::group(['middleware'=>'disable_back'],function(){
 Route::get('/shop', [App\Http\Controllers\BidderController::class, 'shop'])->name('shop');
