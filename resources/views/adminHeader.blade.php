@@ -89,19 +89,6 @@
 <header class="header">
 
 
-
-   <div class="header-1">
-      <div class="flex">
-         <div class="share">
-            <a href="#" class="fab fa-facebook-f" style="text-decoration: none;"></a>
-            <a href="#" class="fab fa-twitter" style="text-decoration: none;"></a>
-            <a href="#" class="fab fa-instagram" style="text-decoration: none;"></a>
-            <a href="#" class="fab fa-linkedin" style="text-decoration: none;"></a>
-         </div>
-         <p> new <a href="{{ route('login') }}" style="text-decoration: none;">login</a> | <a href="{{ route('register') }}" style="text-decoration: none;">register</a>   </p>
-      </div>
-   </div>
-
    <div class="header-2">
       <div class="flex">
          <a href="home" style="text-decoration: none;"class="logo">Arge.</a>
