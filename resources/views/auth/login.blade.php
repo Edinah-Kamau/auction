@@ -28,10 +28,14 @@
       @if(Session::has('success'))
        <div class="alert-success">{{Session::get('success')}}</div>
        @endif
-       @if(Session::has('success'))
+       @if(Session::has('fail'))
        <div class="alert-danger">{{Session::get('fail')}}</div>
        @endif
 
+       @if(Session('error'))
+       <div class="alert-danger">{{Session('error')}}</div>
+       @endif
+       
 
       <h3>login now</h3>
       <div class="box">

@@ -6,6 +6,7 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <link rel="stylesheet" href="{{asset('css/popup.css')}}">
+<link rel="stylesheet" href="{{asset('css/admin_style.css')}}">
 
 <style>
 
@@ -110,15 +111,32 @@
             <a style="text-decoration: none;" href="{{ route('adminHome') }}">Home</a>
                         
             <div class="dropdown1">
+            <button class="dropbtn1">Accounts</button>
+            
+            <div class="dropdown-content1">
+            <a style="text-decoration: none;" href="{{ route('display.bidders') }}">Bidders</a>
+            <a style="text-decoration: none;" href="{{ route('display.sellers') }}">Sellers</a>
+            <a style="text-decoration: none;" href="{{ route('display.admins') }}">Admins</a>
+            <a style="text-decoration: none;" href="{{ route('display.blocked') }}">Blocked</a>
+            <a style="text-decoration: none;" href="{{ route('display.accounts') }}">Accounts</a>
+            <a style="text-decoration: none;" href="{{ route('display.applications') }}">Applications</a>
+
+            </div>
+            </div>
+
+            <div class="dropdown1">
             <button class="dropbtn1">Users</button>
             
             <div class="dropdown-content1">
-            <a style="text-decoration: none;" href="{{ route('about') }}">Bidders</a>
-            <a style="text-decoration: none;" href="{{ route('about') }}">Sellers</a>
-            <a style="text-decoration: none;" href="{{ route('about') }}">Admins</a>
             <a style="text-decoration: none;" href="{{ route('about') }}">Add Users</a>
+            <a style="text-decoration: none;" href="{{ route('about') }}">Applications</a>
+
+
+            
             </div>
             </div>
+
+            
 
             <div class="dropdown1">
             <button class="dropbtn1">Sales</button>
@@ -131,6 +149,8 @@
             
             </div>
             </div>
+
+            
              
             
          </nav>
@@ -159,7 +179,7 @@
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <br>
                                 <a class="dropdown-item" style="font-size: 20px; text-decoration: none; width:100%; color:purple" href="{{ route('password.update') }}">Reset Password</a>
-                                <a class="dropdown-item" style="font-size: 20px; text-decoration: none; width:100%; color:purple"  id="open">Logout</a>
+                                <a class="dropdown-item" style="font-size: 20px; text-decoration: none; width:100%; color:purple"  id="open" >Logout</a>
                                 
                                 
                                 </div>
@@ -172,24 +192,9 @@
       </div>
    </div>
 
-
-
-
-
-
-
-
-
-
-
-                            
-
-
-
-
-
-
     <div class="model-container">
+
+
       <div class="model">
                 
         <p STYLE="color:purple; text-indent: 50px; text-align: justify; letter-spacing: 3px; font-size:20px;">ARGE AUCTION SHOP</p>
@@ -232,6 +237,10 @@
 
     });
     </script>
+
+
+
+
 </header>
 
 
