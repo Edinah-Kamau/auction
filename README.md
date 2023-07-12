@@ -1,4 +1,3 @@
-```markdown
 # Online Auction System using Blockchain
 
 Welcome to the Online Auction System project! This system utilizes blockchain technology to create a secure and transparent platform for conducting online auctions.
@@ -41,12 +40,10 @@ The project utilizes the following technologies:
 
 To run the Online Auction System project on your local machine, follow these steps:
 
-1. Clone the repository and install the project dependencies:
+1. Clone the repository:
 
 ```shell
 git clone https://github.com/your-username/online-auction-system.git
-cd online-auction-system
-composer install
 ```
 
 2. Configure the database connection in the `.env` file:
