@@ -10,7 +10,7 @@
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
    <!-- custom admin css file link  -->
-   <link rel="stylesheet" href="{{asset('css/admin_style.css')}}">
+   <link rel="stylesheet" href="{{asset('css/style.css')}}">
    </head>
 
 @include('sellerHeader');
@@ -24,17 +24,57 @@
 
    <div class="box-container">
 
-      <div class="box">
-         <p><a href="{{ route('create.Auction') }}">Add Auction</a></p>
+
+
+
+        
+        <div class="box">
+      <h2 style="color: brown;">[--{{$unapprovedproducts}}--]</h2>
+         <p> <a href="{{ route('seller.unapprovedproducts') }}" style="text-decoration: none; color:brown;">Waiting List</a> </p>
       </div>
 
-     <div class="box">
-        <p>Products List</p>
-     </div>
+      <div class="box">
+      <h2 style="color: green;">[--{{$approvedproducts}}--]</h2>
+         <p> <a href="{{ route('seller.approvedproducts') }}" style="text-decoration: none; color:green;">Approved arts</a> </p>
+      </div>
 
-     <div class="box">
-        <p>New Messages</p>
-     </div>
+      <div class="box">
+        <h2 style="color: #808000;">[--{{$postedproducts}}--]</h2>
+        <p> <a href="{{route('seller.postedproducts')}}" style="text-decoration: none; color:#808000;">On sale</a> </p>
+        </div>
+
+
+      <div class="box">
+      <h2 style="color: red;">[--{{$blockedproducts}}--]</h2>
+         <p> <a href="{{ route('seller.blockedproducts') }}" style="text-decoration: none; color:red;">Blocked Arts</a> </p>
+      </div>
+
+      <div class="box">
+        <h2 style="color: #000080;">[--{{$soldproducts}}--]</h2>
+        <p> <a href="{{route('sold.products')}}" style="text-decoration: none; color:#000080;">Sold Arts</a> </p>
+        </div>
+
+        <div class="box">
+      <h2 style="color: orange;">[--{{$expired}}--]</h2>
+         <p> <a href="{{ route('seller.endedauction') }}" style="text-decoration: none; color:orange;">Expired auctions</a> </p>
+      </div>
+
+      
+
+      <div class="box">
+        <h2 style="color: purple;">[--{{$totalproducts}}--]</h2>
+        <p> <a href="{{route('seller.displayproducts')}}" style="text-decoration: none; color:purple;">Total Art Pieces</a> </p>
+      </div>
+
+     
+
+        
+
+
+        
+
+
+     
 
    </div>
 
