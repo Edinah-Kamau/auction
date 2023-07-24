@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
 class IndexController extends Controller
 {
@@ -11,10 +12,11 @@ class IndexController extends Controller
      *
      * @return void
      */
-    public function loginj()
-    {
-        return view('login');
-    }
+    public function addProducts()
+     {
+         return view('addProducts');
+     }
 
+    
 }
 ?>
