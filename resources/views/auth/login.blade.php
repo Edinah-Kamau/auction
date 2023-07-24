@@ -73,14 +73,13 @@
        
        <p>don't have an account? <a href="register">register now</a></p>
       
-
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       
       <p>You can login in with:</p>
      
       <a href="{{ route('google.login') }}" class="btn" STYLE="background-color:#4285F4" size="100%" >Google</a>
 
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OR &nbsp;&nbsp;&nbsp;&nbsp;
-      <input type="submit" name="submit" value="MetaMask" name="metamask"class="btn" STYLE="background-color:gray; ">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       
    </form>
 
