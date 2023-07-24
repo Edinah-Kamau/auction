@@ -4,7 +4,7 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Orders</title>
+   <title>Won Bids</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -76,7 +76,7 @@
 
    <body>
 
-       <h3 style="text-align:center; font-size:50px;">Your orders</h3>
+       <h3 style="text-align:center; font-size:50px;">Won Bids</h3>
 
        @foreach($won as $bid)
       
@@ -88,7 +88,7 @@
 
        <div id="second">
          <p style="color:#721c08; font-size:15px; text-align:left;"> <span style="color:#721c08; font-size:15px;"> Congratulations {{Auth::user()->name}},&#x1F525;&#x1F389; </span></p>
-         <p style="color:#721c08; font-size:15px; text-align:left;"> <span style="color:#721c08; font-size:15px;"> You have placed an order for this item. The seller will reach out to you through you email  </span></p>
+         <p style="color:#721c08; font-size:15px; text-align:left;"> <span style="color:#721c08; font-size:15px;"> You have won the bid! Would you like to purchase this art piece?  </span></p>
          <br>
          <p style="color:#666; font-size:15px; text-align:left;"> Art Piece: <span style="color:black; font-size:15px;"> {{ $bid->posted->product_name }}</span></p>
          <p style="color:#666; font-size:15px; text-align:left;"> Description: <span style="color:black; font-size:15px;"> {{ $bid->posted->description }}</span></p>
@@ -98,7 +98,10 @@
          
    
 
-  
+   <button> <a href="#modal" role="button" class="delete-btn" style="text-decoration:none; align-content:left; background-color:#721c08;">Decline</a></button>
+   <button class="delete-btn" style="text-decoration:none; align-content:left; background-color:#725108;">
+   <a href="{{ route('checkout', ['productName' => $bid->posted->product_name, 'email' => Auth::user()->email, 'description' => $bid->posted->description, 'image' => $bid->posted->image, 'units' => $bid->requested_units, 'amount' => $bid->amount, 'sellerEmail' => $bid->posted->seller_email]) }}" style="text-decoration:none; color: white;">Proceed to checkout</a>
+</button>
 
 
 
